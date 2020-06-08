@@ -8,7 +8,7 @@ app.use(helmet());
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+// only route
 app.get('/', (req, res) => res.render('landing'))
 
 
