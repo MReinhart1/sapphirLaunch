@@ -1,0 +1,76 @@
+
+<html>
+<body>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<style>
+    p {
+      display: inline;
+      font-size: 45px;
+      margin-top: 0px;
+      color:blue;
+    }
+    </style>
+
+ <!-- Hero Start -->
+ <section class="bg-home bg-light d-flex align-items-center" style="background:url('/images/168.jpg') center center;" id="home">
+    <div class="container">
+        <div class="row align-items-center" style="height:768px;">
+            <div class="col-lg-12 col-md-9">
+                <img src="/images/logo.png" class="avatar avatar-small" alt="">
+                <p>Launching in:</p>
+                <p id="days"></p>
+                <p id="hours"></p>
+                <p id="mins"></p>
+                <p id="secs"></p>
+                <h2 id="end"></h2>
+                
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+</section>
+
+
+
+
+
+<script>
+   // The data/time we want to countdown to
+   var countDownDate = new Date("Jun 14, 2020 12:00:00").getTime();
+
+// Run myfunc every second
+var myfunc = setInterval(function() {
+
+var now = new Date().getTime();
+var timeleft = countDownDate - now;
+    
+// Calculating the days, hours, minutes and seconds left
+var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+    
+// Result is output to the specific element
+document.getElementById("days").innerHTML = days + "d "
+document.getElementById("hours").innerHTML = hours + "h " 
+document.getElementById("mins").innerHTML = minutes + "m " 
+document.getElementById("secs").innerHTML = seconds + "s " 
+    
+// Display the message when countdown is over
+if (timeleft < 0) {
+    clearInterval(myfunc);
+    document.getElementById("days").innerHTML = ""
+    document.getElementById("hours").innerHTML = "" 
+    document.getElementById("mins").innerHTML = ""
+    document.getElementById("secs").innerHTML = ""
+    document.getElementById("end").innerHTML = "TIME UP!!";
+}
+}, 1000);
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+</body>
+</html>
